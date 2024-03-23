@@ -1,3 +1,65 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "extends": [
+    "@rocketseat/eslint-config/react",
+    "next/core-web-vitals",
+    "plugin:tailwindcss/recommended"
+  ],
+  "plugins": [
+    "tailwindcss",
+    "import-helpers"
+  ],
+  "rules": {
+    "@next/next/no-html-link-for-pages": "off",
+    "react/jsx-key": "off",
+    "tailwindcss/no-custom-classname": "off",
+    "tailwindcss/classnames-order": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 120,
+        "tabWidth": 2,
+        "singleQuote": true,
+        "trailingComma": "all",
+        "arrowParens": "always",
+        "semi": false,
+        "endOfLine": "auto"
+      }
+    ],
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          [
+            "/^react/",
+            "/^next/"
+          ],
+          "module",
+          [
+            "/^@/(components|configs|contexts|features|lib|services|styles|types|layout|core)/"
+          ],
+          [
+            "parent",
+            "sibling",
+            "index"
+          ]
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
+      }
+    ]
+  },
+  "settings": {
+    "tailwindcss": {
+      "callees": [
+        "cn"
+      ]
+    },
+    "next": {
+      "rootDir": true
+    }
+  }
 }
